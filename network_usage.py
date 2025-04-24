@@ -1,6 +1,6 @@
-# -------------------------------------------------------
-# Bienvenido al programa de especificaciones del sistema
-# -------------------------------------------------------
+# ----------------------------------------------------------------
+# Bienvenido al programa de analisis de su red con nmap y netstat
+# ----------------------------------------------------------------
 import os
 import subprocess
 
