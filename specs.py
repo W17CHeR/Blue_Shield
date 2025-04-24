@@ -1,3 +1,6 @@
+# -------------------------------------------------------
+# Bienvenido al programa de specs.py
+# -------------------------------------------------------
 import subprocess
 import os
 
@@ -55,3 +58,7 @@ if __name__ == "__main__":
     mostrar_presentacion()
     mostrar_menu()
     print("Gracias por usar Specs. ¡Hasta luego!")
+
+# -------------------------------------------------------
+# Programa creado por Sergio (aka W17CHeR)
+# -------------------------------------------------------
