@@ -1,7 +1,3 @@
-# -------------------------------------------------------
-# Bienvenido al programa de especificaciones del sistema
-# -------------------------------------------------------
-
 import subprocess
 import os
 
@@ -30,8 +26,8 @@ def menu_post_ejecucion():
         opcion = input("Selecciona una opción: ").strip()
 
         if opcion == "1":
-            subprocess.run(["python", "Blue_Shield.py"])
-            break
+            # ✅ Reemplaza el proceso actual con Blue_Shield.py
+            os.execlp("python", "python", "Blue_Shield.py")
         elif opcion.lower() == "q":
             print("Saliendo del programa...")
             break
@@ -59,7 +55,3 @@ if __name__ == "__main__":
     mostrar_presentacion()
     mostrar_menu()
     print("Gracias por usar Specs. ¡Hasta luego!")
-
-# -------------------------------------------------------
-# Programa creado por Sergio (aka W17CHeR)
-# -------------------------------------------------------
