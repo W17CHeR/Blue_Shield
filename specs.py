@@ -21,7 +21,7 @@ def ejecutar_fastfetch():
 def menu_post_ejecucion():
     while True:
         print("\n¿Qué deseas hacer ahora?")
-        print("1. Volver al menú principal de Blue_Shield.py")
+        print("1. Volver al menú principal de Blue_Shield")
         print("q. Salir")
         opcion = input("Selecciona una opción: ").strip()
 
