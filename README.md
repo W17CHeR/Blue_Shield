@@ -8,5 +8,6 @@ en el sistema operativo de Kali Linux.
 ----------------------------------------------------------------------------
 IMPORTANTE:
 Para su buen funcionamiento recomiendo instalar lo siguiente en Kali Linux:
+----------------------------------------------------------------------------
 (1) sudo apt-get fastfetch
 (2) sudo apt install clamav-daemon
