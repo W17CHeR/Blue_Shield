@@ -1,5 +1,5 @@
 # -------------------------------------------------------
-# Bienvenido al programa de especificaciones del sistema
+# Bienvenido al programa del antivirus Clamav
 # -------------------------------------------------------
 
 import os
