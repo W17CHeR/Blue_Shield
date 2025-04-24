@@ -21,20 +21,22 @@ def ejecutar_fastfetch():
         print("Error: 'fastfetch' no está instalado o no se encuentra en el PATH.")
     except subprocess.CalledProcessError as e:
         print(f"Ocurrió un error al ejecutar fastfetch: {e}")
-    
-    print("\n¿Qué deseas hacer ahora?")
-    print("1. Volver al menú de specs.sh")
-    print("2. Volver al menú principal de Blue_Shield.py")
-    print("3. Salir")
 
-    opcion = input("Selecciona una opción: ")
+def menu_post_ejecucion():
+    while True:
+        print("\n¿Qué deseas hacer ahora?")
+        print("1. Volver al menú principal de Blue_Shield.py")
+        print("q. Salir")
+        opcion = input("Selecciona una opción: ").strip()
 
-    if opcion == "1":
-        subprocess.run(["bash", "specs.sh"])
-    elif opcion == "2":
-        subprocess.run(["python", "Blue_Shield.py"])
-    else:
-        print("Saliendo del programa...")
+        if opcion == "1":
+            subprocess.run(["python", "Blue_Shield.py"])
+            break
+        elif opcion.lower() == "q":
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción no válida. Intenta de nuevo.")
 
 def mostrar_menu():
     while True:
@@ -48,7 +50,8 @@ def mostrar_menu():
             break
         elif opcion == "1":
             ejecutar_fastfetch()
-            break  # Salir del menú después de la ejecución
+            menu_post_ejecucion()
+            break  # Salimos del menú después de regresar o salir
         else:
             print("Opción no válida. Intenta de nuevo.")
 
