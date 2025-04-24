@@ -11,3 +11,7 @@ Para su buen funcionamiento recomiendo instalar lo siguiente en Kali Linux:
 ----------------------------------------------------------------------------
 (1) sudo apt-get fastfetch
 (2) sudo apt install clamav-daemon
+----------------------------------------------------------------------------
+Después descarge el programa mediante el comando git clone, y ejecutelo con
+privilegios sudo para el funcionamiento de netstat
+----------------------------------------------------------------------------
