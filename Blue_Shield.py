@@ -72,7 +72,7 @@ if __name__ == "__main__":
     mostrar_ascii_azul()
     mostrar_presentacion()
     mostrar_menu()
-    print("Gracias por usar Py_Script. ¡Hasta luego!")
+    print("Gracias por usar Blue_Shield. ¡Hasta luego!")
 
 # -------------------------------------------------------
 # Programa creado por Sergio (aka W17CHeR)
