@@ -1,0 +1,62 @@
+# -------------------------------------------------------
+# Bienvenido al programa de especificaciones del sistema
+# -------------------------------------------------------
+
+import subprocess
+import os
+
+def mostrar_presentacion():
+    print("="*75)
+    print("     Bienvenido a Specs".center(75))
+    print("="*75)
+    print("Esta herramienta te mostrará en CLI las especificaciones de tu equipo".center(75))
+    print("="*75)
+    print()
+
+def ejecutar_fastfetch():
+    print("\nEjecutando Fastfetch...\n")
+    try:
+        subprocess.run(["fastfetch"], check=True)
+    except FileNotFoundError:
+        print("Error: 'fastfetch' no está instalado o no se encuentra en el PATH.")
+    except subprocess.CalledProcessError as e:
+        print(f"Ocurrió un error al ejecutar fastfetch: {e}")
+    
+    print("\n¿Qué deseas hacer ahora?")
+    print("1. Volver al menú de specs.sh")
+    print("2. Volver al menú principal de Blue_Shield.py")
+    print("3. Salir")
+
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "1":
+        subprocess.run(["bash", "specs.sh"])
+    elif opcion == "2":
+        subprocess.run(["python", "Blue_Shield.py"])
+    else:
+        print("Saliendo del programa...")
+
+def mostrar_menu():
+    while True:
+        print("\nMenú de opciones:")
+        print("1. Mostrar especificaciones del sistema (fastfetch)")
+        print("q. Salir")
+
+        opcion = input("Selecciona una opción: ").strip()
+        if opcion == 'q':
+            print("Saliendo del programa...")
+            break
+        elif opcion == "1":
+            ejecutar_fastfetch()
+            break  # Salir del menú después de la ejecución
+        else:
+            print("Opción no válida. Intenta de nuevo.")
+
+if __name__ == "__main__":
+    mostrar_presentacion()
+    mostrar_menu()
+    print("Gracias por usar Specs. ¡Hasta luego!")
+
+# -------------------------------------------------------
+# Programa creado por Sergio (aka W17CHeR)
+# -------------------------------------------------------
