@@ -12,7 +12,7 @@ def mostrar_menu():
         print("=" * 60)
         print("1. Analizar la carpeta raíz de Linux (/)")
         print("2. Analizar el directorio Home (/home)")
-        print("3. Volver al menú principal de Blue_Shield.py")
+        print("3. Volver al menú principal de Blue_Shield")
         print("q. Salir")
         opcion = input("\nSelecciona una opción: ").strip()
 
