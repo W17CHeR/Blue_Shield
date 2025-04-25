@@ -1,3 +1,12 @@
 ------------------------------------------------------------------------
 En el changelog encontrara todos los cambios realizados de Blue Shield.
 ------------------------------------------------------------------------
+
+
+--------------
+Update 1.0.2
+--------------
+* Corregido el código de Blue_Shield.py
+* Corregido el código de network_usage.py
+* Corregido el código de antivirus_usage.py
+* Corregido el código de specs.py
