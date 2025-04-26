@@ -10,3 +10,9 @@ Update 1.0.2
 * Corregido el código de network_usage.py
 * Corregido el código de antivirus_usage.py
 * Corregido el código de specs.py
+
+-------------
+Update 1.0.3
+-------------
+* Modificado las lineas de Blue_Shield.py para que ejecute en la cuerta opción a wireshark_usage.py
+* Añadida nueva función, ahora podrá ejecutar Wireshark en Blue_Shield.
