@@ -20,6 +20,5 @@ Update 1.0.3
 --------------
 Update 1.0.4
 --------------
-* Sea modificado el programa network_usage.py ahora preguntara tanto en nmap como netstat si desea crear un log en su escritorio.
 * El archivo antivirus_usage.py sea modificado para que en el analisis de raiz y home nos pueda preguntar si deseamos un log en nuestro escritorio.
 * Corregido en Wireshark.py, la linea de "Volver al menú principal de Blue_Shield.py" por "Volver al menú principal de Blue_Shield"
