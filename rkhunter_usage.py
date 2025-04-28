@@ -4,6 +4,7 @@
 
 import os
 import subprocess
+import shutil
 
 def mostrar_menu():
     while True:
@@ -17,8 +18,10 @@ def mostrar_menu():
         opcion = input("\nSelecciona una opción: ").strip()
 
         if opcion == "1":
+            verificar_rkhunter()
             ejecutar_rkhunter_check()
         elif opcion == "2":
+            verificar_rkhunter()
             ejecutar_rkhunter_silencioso()
         elif opcion == "3":
             regresar_a_blue_shield()
@@ -34,6 +37,24 @@ def asegurar_directorio_escritorio():
         print(f"⚠️ El directorio {escritorio} no existe. Creándolo...")
         os.makedirs(escritorio)
     return escritorio
+
+def verificar_rkhunter():
+    """Verifica si rkhunter está instalado. Si no, ofrece instalarlo."""
+    if shutil.which("rkhunter") is None:
+        print("⚠️ Rkhunter no está instalado en el sistema.")
+        instalar = input("¿Deseas instalar Rkhunter ahora? (s/n): ").strip().lower()
+        if instalar == "s":
+            try:
+                print("🚀 Instalando Rkhunter...")
+                subprocess.run(["sudo", "apt", "update"], check=True)
+                subprocess.run(["sudo", "apt", "install", "-y", "rkhunter"], check=True)
+                print("✅ Rkhunter instalado correctamente.")
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Error al intentar instalar Rkhunter: {e}")
+                exit(1)
+        else:
+            print("❌ No se puede continuar sin Rkhunter. Saliendo...")
+            exit(1)
 
 def ejecutar_rkhunter_check():
     print("\n🚀 Ejecutando análisis completo con Rkhunter...\n")
@@ -65,6 +86,7 @@ def regresar_a_blue_shield():
 
 if __name__ == "__main__":
     mostrar_menu()
+
 
 
 
