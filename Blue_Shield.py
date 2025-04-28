@@ -46,6 +46,7 @@ def mostrar_menu():
         "2": ("Mostrar el uso de la red", "./network_usage.py"),
         "3": ("Antivirus Clamav", "./antivirus_usage.py"),
         "4": ("capturar y analizar el tráfico de red con Wireshark", "./wireshark_usage.py"),
+        "5": ("Analizar el sistema con RKHunter", "./rkhunter_usage.py"),
     }
 
     while True:
@@ -53,7 +54,7 @@ def mostrar_menu():
         for key, value in scripts.items():
             print(f"{key}. {value[0]}")
 
-        opcion = input("Selecciona una opción (1-4) o 'q' para salir: ")
+        opcion = input("Selecciona una opción (1-5) o 'q' para salir: ")
         if opcion == 'q':
             print("Saliendo del programa...")
             break
