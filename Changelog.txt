@@ -20,5 +20,5 @@ Update 1.0.3
 --------------
 Update 1.0.4
 --------------
-* Sea modificado el programa network_usage.py ahora preguntara tanto en nmap como netstat si desea crear un log en su escritorio
-* 
+* Sea modificado el programa network_usage.py ahora preguntara tanto en nmap como netstat si desea crear un log en su escritorio.
+* El archivo antivirus_usage.py sea modificado para que en el analisis de raiz y home nos pueda preguntar si deseamos un log en nuestro escritorio.
