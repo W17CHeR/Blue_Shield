@@ -31,13 +31,6 @@ def mostrar_menu():
         else:
             print("Opción no válida. Intenta de nuevo.")
 
-def asegurar_directorio_escritorio():
-    escritorio = os.path.expanduser("~/Desktop")
-    if not os.path.exists(escritorio):
-        print(f"⚠️ El directorio {escritorio} no existe. Creándolo...")
-        os.makedirs(escritorio)
-    return escritorio
-
 def verificar_rkhunter():
     """Verifica si rkhunter está instalado. Si no, ofrece instalarlo."""
     if shutil.which("rkhunter") is None:
@@ -56,24 +49,43 @@ def verificar_rkhunter():
             print("❌ No se puede continuar sin Rkhunter. Saliendo...")
             exit(1)
 
+def solicitar_ruta_log():
+    """Pregunta si se desea guardar log, y solicita la ruta si es afirmativo."""
+    desea_log = input("¿Deseas guardar el resultado en un log? (s/n): ").strip().lower()
+    if desea_log == "s":
+        ruta = input("Introduce la ruta donde deseas guardar el log (ej: /home/usuario/MisLogs/): ").strip()
+        if not os.path.exists(ruta):
+            print(f"⚠️ La ruta {ruta} no existe. Creándola...")
+            os.makedirs(ruta)
+        return os.path.join(ruta, "rkhunter_log.txt")
+    else:
+        return None
+
 def ejecutar_rkhunter_check():
     print("\n🚀 Ejecutando análisis completo con Rkhunter...\n")
     try:
-        escritorio = asegurar_directorio_escritorio()
-        ruta_log = os.path.join(escritorio, "Rkhunter_analisis_sistema.txt")
-        comando = f"sudo rkhunter --check --logfile {ruta_log}"
+        ruta_log = solicitar_ruta_log()
+        if ruta_log:
+            comando = f"sudo rkhunter --check --logfile {ruta_log}"
+        else:
+            comando = "sudo rkhunter --check"
         subprocess.run(comando, shell=True, check=True)
-        print(f"✅ Análisis completo realizado. Log guardado en {ruta_log}")
+        if ruta_log:
+            print(f"✅ Análisis completo realizado. Log guardado en {ruta_log}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Rkhunter: {e}")
 
 def ejecutar_rkhunter_silencioso():
     print("\n🚀 Ejecutando análisis rápido/silencioso con Rkhunter...\n")
     try:
-        escritorio = asegurar_directorio_escritorio()
-        comando = f"sudo bash -c 'rkhunter -c -sk --logfile {escritorio}/informe_antirootkit-$(date +%Y-%m-%d).log'"
+        ruta_log = solicitar_ruta_log()
+        if ruta_log:
+            comando = f"sudo bash -c 'rkhunter -c -sk --logfile {ruta_log}'"
+        else:
+            comando = "sudo rkhunter -c -sk"
         subprocess.run(comando, shell=True, check=True)
-        print(f"✅ Análisis silencioso realizado. Log guardado en {escritorio}")
+        if ruta_log:
+            print(f"✅ Análisis silencioso realizado. Log guardado en {ruta_log}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Rkhunter: {e}")
 
@@ -86,6 +98,7 @@ def regresar_a_blue_shield():
 
 if __name__ == "__main__":
     mostrar_menu()
+
 
 
 
