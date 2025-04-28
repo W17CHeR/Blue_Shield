@@ -46,7 +46,7 @@ def mostrar_menu():
         "2": ("Mostrar el uso de la red", "./network_usage.py"),
         "3": ("Antivirus Clamav", "./antivirus_usage.py"),
         "4": ("capturar y analizar el tráfico de red con Wireshark", "./wireshark_usage.py"),
-        "5": ("Analizar el sistema con RKHunter", "./rkhunter_usage.py"),
+        "5": ("Antirootkit para analizar el sistema con RKHunter", "./rkhunter_usage.py"),
     }
 
     while True:
