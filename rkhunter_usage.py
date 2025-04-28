@@ -12,7 +12,7 @@ def mostrar_menu():
         print("=" * 70)
         print("1. Analizar el sistema (rkhunter --check)")
         print("2. Análisis rápido y silencioso (rkhunter -c -sk)")
-        print("3. Volver al menú principal de Blue_Shield")
+        print("3. Volver al menú principal de Blue_Shield.py")
         print("q. Salir")
         opcion = input("\nSelecciona una opción: ").strip()
 
@@ -28,21 +28,31 @@ def mostrar_menu():
         else:
             print("Opción no válida. Intenta de nuevo.")
 
+def asegurar_directorio_escritorio():
+    escritorio = os.path.expanduser("~/Desktop")
+    if not os.path.exists(escritorio):
+        print(f"⚠️ El directorio {escritorio} no existe. Creándolo...")
+        os.makedirs(escritorio)
+    return escritorio
+
 def ejecutar_rkhunter_check():
     print("\n🚀 Ejecutando análisis completo con Rkhunter...\n")
     try:
-        comando = "sudo rkhunter --check --logfile ~/Desktop/Rkhunter_analisis_sistema.txt"
+        escritorio = asegurar_directorio_escritorio()
+        ruta_log = os.path.join(escritorio, "Rkhunter_analisis_sistema.txt")
+        comando = f"sudo rkhunter --check --logfile {ruta_log}"
         subprocess.run(comando, shell=True, check=True)
-        print("✅ Análisis completo realizado. Log guardado en ~/Desktop/Rkhunter_analisis_sistema.txt")
+        print(f"✅ Análisis completo realizado. Log guardado en {ruta_log}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Rkhunter: {e}")
 
 def ejecutar_rkhunter_silencioso():
     print("\n🚀 Ejecutando análisis rápido/silencioso con Rkhunter...\n")
     try:
-        comando = "sudo rkhunter -c -sk --logfile ~/Desktop/informe_antirootkit-$(date +%Y-%m-%d).log"
+        escritorio = asegurar_directorio_escritorio()
+        comando = f"sudo bash -c 'rkhunter -c -sk --logfile {escritorio}/informe_antirootkit-$(date +%Y-%m-%d).log'"
         subprocess.run(comando, shell=True, check=True)
-        print("✅ Análisis silencioso realizado. Log guardado en ~/Desktop con fecha incluida.")
+        print(f"✅ Análisis silencioso realizado. Log guardado en {escritorio}")
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Rkhunter: {e}")
 
@@ -55,6 +65,7 @@ def regresar_a_blue_shield():
 
 if __name__ == "__main__":
     mostrar_menu()
+
 
 
 # -------------------------------------------------------
