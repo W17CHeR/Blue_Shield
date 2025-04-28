@@ -16,3 +16,9 @@ Update 1.0.3
 -------------
 * Modificado las lineas de Blue_Shield.py para que ejecute en la cuerta opción a wireshark_usage.py
 * Añadida nueva función, ahora podrá ejecutar Wireshark en Blue_Shield.
+
+--------------
+Update 1.0.4
+--------------
+* Sea modificado el programa network_usage.py ahora preguntara tanto en nmap como netstat si desea crear un log en su escritorio
+* 
