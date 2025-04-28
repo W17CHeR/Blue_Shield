@@ -1,5 +1,5 @@
 # -------------------------------------------------------
-# Bienvenido al programa del antivirus Clamav
+# Bienvenido al programa de especificaciones del sistema
 # -------------------------------------------------------
 
 import os
@@ -12,14 +12,14 @@ def mostrar_menu():
         print("=" * 60)
         print("1. Analizar la carpeta raíz de Linux (/)")
         print("2. Analizar el directorio Home (/home)")
-        print("3. Volver al menú principal de Blue_Shield")
+        print("3. Volver al menú principal de Blue_Shield.py")
         print("q. Salir")
         opcion = input("\nSelecciona una opción: ").strip()
 
         if opcion == "1":
-            analizar_con_clamav("/")
+            analizar_con_clamav("/", "clamav-raiz.log")
         elif opcion == "2":
-            analizar_con_clamav("/home")
+            analizar_con_clamav("/home", "clamav-home.log")
         elif opcion == "3":
             regresar_a_blue_shield()
         elif opcion.lower() == "q":
@@ -28,10 +28,18 @@ def mostrar_menu():
         else:
             print("Opción no válida. Intenta de nuevo.")
 
-def analizar_con_clamav(directorio):
+def analizar_con_clamav(directorio, nombre_log):
     print(f"\n🔍 Iniciando análisis de ClamAV en el directorio: {directorio}...\n")
+    guardar_log = input(f"¿Deseas guardar el resultado en '{nombre_log}' en el Escritorio? (s/n): ").strip().lower()
+    
     try:
-        subprocess.run(["clamscan", "-r", directorio], check=True)
+        if guardar_log == "s":
+            ruta_log = os.path.expanduser(f"~/Desktop/{nombre_log}")
+            with open(ruta_log, "w") as log_file:
+                subprocess.run(["clamscan", "-r", directorio], stdout=log_file, stderr=subprocess.STDOUT, check=True)
+            print(f"✅ Resultado guardado en {ruta_log}")
+        else:
+            subprocess.run(["clamscan", "-r", directorio], check=True)
     except FileNotFoundError:
         print("❌ Error: ClamAV no está instalado o no se encuentra en el PATH.")
     except subprocess.CalledProcessError as e:
@@ -47,7 +55,8 @@ def regresar_a_blue_shield():
 if __name__ == "__main__":
     mostrar_menu()
 
-
 # -------------------------------------------------------
 # Programa creado por Sergio (aka W17CHeR)
 # -------------------------------------------------------
+# Este programa es parte de Blue_Shield, un conjunto de herramientas para la seguridad informática.
+
