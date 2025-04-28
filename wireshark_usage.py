@@ -11,7 +11,7 @@ def mostrar_menu():
         print("           Análisis de Red - Wireshark".center(60))
         print("=" * 60)
         print("1. Ejecutar Wireshark")
-        print("2. Volver al menú principal de Blue_Shield.py")
+        print("2. Volver al menú principal de Blue_Shield")
         print("q. Salir")
         opcion = input("\nSelecciona una opción: ").strip()
 
