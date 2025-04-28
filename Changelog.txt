@@ -20,5 +20,6 @@ Update 1.0.3
 --------------
 Update 1.0.4
 --------------
-* Añadida información en network_usage.py y antivirus_usage.py en la última linea: "# Este programa es parte de Blue_Shield, un conjunto de herramientas para la seguridad informática."
+* Añadida información en network_usage.py, antivirus_usage.py y wireshark_usage.py en la última linea: 
+"Este programa es parte de Blue_Shield, un conjunto de herramientas para la seguridad informática."
 * Corregido en Wireshark.py, la linea de "Volver al menú principal de Blue_Shield.py" por "Volver al menú principal de Blue_Shield"
