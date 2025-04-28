@@ -48,7 +48,7 @@ if __name__ == "__main__":
     mostrar_menu()
 
 
-
 # -------------------------------------------------------
 # Programa creado por Sergio (aka W17CHeR)
 # -------------------------------------------------------
+# Este programa es parte de Blue_Shield, un conjunto de herramientas para la seguridad informática.
