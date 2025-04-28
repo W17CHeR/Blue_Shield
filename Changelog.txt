@@ -30,3 +30,4 @@ Update 1.0.5
 * Añadido nueva opción en Blue_Shield.py
 * Añadido nueva herramienta antirootkit llamada Rkhunter con el nombre de fichero rkhunter_usage.py
 * Corregido error al crear log en el Escritorio de Rkhunter.
+* Ahora el programa rkhunter si no esta instalado, preguntara si desea instalarlo
