@@ -30,36 +30,18 @@ def mostrar_menu():
 
 def escanear_con_nmap():
     objetivo = input("\nIntroduce la IP o rango a escanear (ej. 192.168.1.0/24): ").strip()
-    guardar_log = input("¿Deseas guardar el resultado en un archivo 'nmap-log.txt' en el Escritorio? (s/n): ").strip().lower()
-    
     print(f"\n🔍 Ejecutando escaneo Nmap en {objetivo}...\n")
-    
     try:
-        if guardar_log == "s":
-            ruta_log = os.path.expanduser("~/Desktop/nmap-log.txt")
-            with open(ruta_log, "w") as log_file:
-                subprocess.run(["nmap", "-sP", objetivo], stdout=log_file, stderr=subprocess.STDOUT, check=True)
-            print(f"✅ Resultado guardado en {ruta_log}")
-        else:
-            subprocess.run(["nmap", "-sP", objetivo], check=True)
+        subprocess.run(["nmap", "-sP", objetivo], check=True)
     except FileNotFoundError:
         print("❌ Error: Nmap no está instalado o no se encuentra en el PATH.")
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Nmap: {e}")
 
 def analizar_con_netstat():
-    guardar_log = input("¿Deseas guardar el resultado en un archivo 'netstat-log.txt' en el Escritorio? (s/n): ").strip().lower()
-    
     print("\n🔍 Mostrando conexiones activas con Netstat...\n")
-    
     try:
-        if guardar_log == "s":
-            ruta_log = os.path.expanduser("~/Desktop/netstat-log.txt")
-            with open(ruta_log, "w") as log_file:
-                subprocess.run(["netstat", "-tunap"], stdout=log_file, stderr=subprocess.STDOUT, check=True)
-            print(f"✅ Resultado guardado en {ruta_log}")
-        else:
-            subprocess.run(["netstat", "-tunap"], check=True)
+        subprocess.run(["netstat", "-tunap"], check=True)
     except FileNotFoundError:
         print("❌ Error: Netstat no está disponible en tu sistema.")
     except subprocess.CalledProcessError as e:
