@@ -38,12 +38,16 @@ def escanear_con_nmap():
         if guardar_log == "s":
             ruta_log = os.path.expanduser("~/Desktop/nmap-log.txt")
             with open(ruta_log, "w") as log_file:
-                subprocess.run(["nmap", "-sP", objetivo], stdout=log_file, stderr=subprocess.STDOUT, check=True)
-            print(f"✅ Resultado guardado en {ruta_log}")
+                try:
+                    subprocess.run(["nmap", "-sP", objetivo], stdout=log_file, stderr=subprocess.STDOUT, check=True)
+                    print(f"✅ Resultado guardado en {ruta_log}")
+                except subprocess.CalledProcessError as e:
+                    print("⚠️ Nmap se ejecutó pero hubo un error. Consulta el archivo log para más detalles.")
         else:
             subprocess.run(["nmap", "-sP", objetivo], check=True)
     except FileNotFoundError:
         print("❌ Error: Nmap no está instalado o no se encuentra en el PATH.")
+
     except subprocess.CalledProcessError as e:
         print(f"❌ Ocurrió un error al ejecutar Nmap: {e}")
 
