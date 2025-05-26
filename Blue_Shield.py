@@ -36,9 +36,10 @@ def mostrar_presentacion():
     print("="*75)
     print("     Bienvenido a Blue_Shield".center(75))
     print("="*75)
-    print("Esta herramienta te mostrara en CLI una lista de programas de Python".center(50))
+    print("Esta herramienta fue desarrollada por Sergio (aka: W17CH3R)".center(50))
     print("="*75)
-    print()
+    print("version 1.0.6".center(50))
+    print("="*75)
 
 def mostrar_menu():
     scripts = {
