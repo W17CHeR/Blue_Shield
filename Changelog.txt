@@ -32,3 +32,9 @@ Update 1.0.5
 * Corregido error al crear log en el Escritorio de Rkhunter.
 * Ahora el programa rkhunter si no esta instalado, preguntara si desea instalarlo
 * Rkhunter preguntara que ruta desea guardar el log.txt
+
+--------------
+Update 1.0.6
+--------------
+* Añadido nueva información en Blue_Shield.py.
+* Añadido en Blue_Shield.py la versión del programa, a medida que se actualice se modificara esa linea.
