@@ -16,4 +16,6 @@ Después descarge el programa mediante el comando git clone, y ejecutelo con
 privilegios sudo para el funcionamiento de netstat
 
 -------------------------------------------
+
+Colaborado por Fernando y Adrian
 ----------------------------------------------------------------------------
