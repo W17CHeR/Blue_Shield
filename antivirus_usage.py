@@ -49,5 +49,5 @@ if __name__ == "__main__":
 
 # -------------------------------------------------------
 # Programa creado por Sergio (aka W17CHeR)
-# -------------------------------------------------------
+# Colaborado por Fernando y Adrian -------------------------------------------------------
 # Este programa es parte de Blue_Shield, un conjunto de herramientas para la seguridad informática.
