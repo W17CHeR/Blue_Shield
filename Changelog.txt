@@ -38,3 +38,5 @@ Update 1.0.6
 --------------
 * Añadido nueva información en Blue_Shield.py.
 * Añadido en Blue_Shield.py la versión del programa, a medida que se actualice se modificara esa linea.
+
+
